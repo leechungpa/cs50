@@ -69,7 +69,7 @@ inclue<stdio.h>
 
 bool : 불리언
 char : 문자
-string : 문자열
+string : 문자열 (cs50)
 int : 정수
 float : 부동소수의 실수
 
@@ -78,9 +78,24 @@ double : 더 큰 보동소수의 실수
     -> 오버플로우overflow를 줄이기 위해 사용
 
 
+
 && : and
 || : or
 // : 주석
+
+
+
+
+
+### 새로운 데이터 타입
+
+```c
+typedef struct
+{
+    string name;
+    string number;
+} person;
+```
 
 
 

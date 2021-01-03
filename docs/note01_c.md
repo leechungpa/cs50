@@ -6,6 +6,8 @@
 
 
 
+
+
 # 2. 컴파일
 
 preprocessing -> compiling -> assembling -> linking
@@ -56,6 +58,8 @@ gdb 프로그램명 b (중지점 줄수)
 
 
 
+
+
 # 3. 라이브러리
 
 inclue<stdio.h>
@@ -65,25 +69,18 @@ inclue<stdio.h>
 
 
 
+
+
 # 4. 데이터 타입
 
 bool : 불리언
 char : 문자
-string : 문자열 (cs50)
 int : 정수
 float : 부동소수의 실수
 
 long : 더 큰 정수 (더 많은 비트 사용) (li)
 double : 더 큰 보동소수의 실수
     -> 오버플로우overflow를 줄이기 위해 사용
-
-
-
-&& : and
-|| : or
-// : 주석
-
-
 
 
 
@@ -94,12 +91,25 @@ typedef struct
 {
     string name;
     string number;
-} person;
+}
+person;
 ```
 
 
 
-# 5. window 우분투 명령어
+
+
+# 5. C 기타
+
+&& : and
+|| : or
+// : 주석
+
+
+
+
+
+# 6. window 우분투 명령어
 
 gcc hello.c -o hello
     : hellow 생성
@@ -109,3 +119,6 @@ hello
 
 gcc hello.c
     : a.out 파일 생성
+
+
+

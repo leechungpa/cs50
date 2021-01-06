@@ -93,11 +93,58 @@ cf. string을 비교할 경우 pointer를 비교하면 항상 다른 것으로 �
 
 
 
-# 문자열 복사
+# 메모리 할당
 
 malloc : 정해진 byte 크기 만큼 메모리를 할당하여 첫번째 주소를 알려주는 함수
 
-free : grabage collection 해줌 (안할 경우 메모리 용랑의 낭비 발생)
+     - malloc로 메모리 할당을 할 경우, 컴퓨터 사정에 의해 에러가 날 수 있으므로 아래 처럼 NULL인지 확인해 주는 것이 좋음
+     - realloc : 메모리 재할당
+
+free : grabage collection 해줌
+
+    - 안할 경우 메모리 용랑의 낭비 발생
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+    int *list = malloc(3 * sizeof(int));
+    if (list == NULL)
+    {
+        return 1;
+    }
+
+    list[0] = 1;
+    list[1] = 2;
+    list[2] = 3;
+
+    // 위에는 3개로 구성되었으나, 하나 더 추가하고자 새로운 포인터 할당
+    int *tmp = realloc(list, 4 * sizeof(int));
+    if (tmp == NULL)
+    {
+        return 1;
+    }
+
+    list = tmp;
+
+    list[3] = 4;
+
+    // 값 확인
+    for (int i = 0; i < 4; i++)
+    {
+        printf("%i\n", list[i]);
+    }
+
+    // 메모리 초기화
+    free(list);
+}
+```
+
+
+
+### 문자열 복사
 
 ```c
 #include <ctype.h>
@@ -124,7 +171,7 @@ int main(void)
     printf("t: %s\n", t);
     // t: Abc
     
-    // 메모리 수집
+    // 메모리 초기화
     free(t);
 }
 ```
